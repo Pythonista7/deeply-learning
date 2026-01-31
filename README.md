@@ -15,8 +15,8 @@ It would obviously be foolish to continue to use `np` for everything since the g
 I start off from [this article](http://yann.lecun.com/exdb/publis/pdf/lecun-iscas-10.pdf) by the OG himself and we will try to use only the "[autodiff](https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html)" feature of torch.
 This strikes the perfect balance between understand nuances of a architecture and all the bells and whistles it comes with while building on top of what we already know for sure.
 
-The notebook kicks off with building a naive conv op to build my first CNN layer and train it. Then when i do train it , i see that the GPU never gets used and the training is ridiculously slow!
-Guess what? GPU's HATE LOOPS! To solve this we look at how torch can help us with thinks like "unfold" and take our first steps into thinking about "vectorizing" ops A.K.A , thinking about GPU friendly matrix ops instead of naively coding in torch.
+The notebook kicks off with building a naive conv op to build my first CNN layer, deeply understand the conv op and train it. Then when i do train it , i see that the GPU never gets used and the training is ridiculously slow!
+Guess what? **GPU's HATE LOOPS!** To solve this we look at how torch can help us with thinks like "unfold" and take our first steps into thinking about "vectorizing" ops A.K.A , thinking about GPU friendly matrix ops instead of naively coding in torch.
 
 > Colab: [Notebook](https://colab.research.google.com/drive/15MP1EmlyL5so86WzF11I04MQKAfbs5j1?usp=sharing)
 
@@ -47,4 +47,15 @@ Colab: [Notebook](https://colab.research.google.com/drive/1xONyE0W3ipjii-_YRB_IF
 <img width="423" height="295" alt="image" src="https://github.com/user-attachments/assets/6e5a070c-8830-4fcf-81fc-4acc98f6bd82" />
 
 
+## Step 5: Transformers
+HAVE to start this of by read [Attention is All you Need + my notes](https://rlist.ashwinms.com/garden/b26e49de-4911-4731-9a0d-0eabee502819), a obviously jumping point into modern AI development.
+This one took a bit of time to truly understand and piece together but was worth the effort. The simple mental model is:
+> Attention -> Multi Head Attention -> Encoder -> Decoder -> Transformer
+
+Again the goal of the notebook was to get to autograd only implementation which captures all the core compnents and how+why those things and are required. I literally try and code out each piece as seen in the TOC and train it on a ambitious brain-child of a dataset of my mine! Even though my model performs underwelmingly on the said task, it still demostrates the amazing learning
+capabilites of transformers and opens the door to important questions about data generation when randomness is involved and how much impact just improving the "representation" can have on model performance etc. 
+
+Colab: [Notebook](https://colab.research.google.com/drive/1KFOk4bvrqfgtYU7Z11R5rV7x1_Qn-Q_c?usp=sharing)
+
+<img width="423" height="658" alt="image" src="https://github.com/user-attachments/assets/ed020fcc-74e7-469a-8317-bf44a5546e05" />
 
